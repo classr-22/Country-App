@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
-function Card({ filter = "" }) {  
+function Card({ filter = "", setCountry}) {  
 
   const [countriesData, setCountriesData] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -31,7 +34,10 @@ function Card({ filter = "" }) {
   return (
     <div className="countrygrid">
       {filteredCountries.map((country) => (
-        <div className="card" key={country.cca3}>
+        <div className="card" key={country.cca3} onClick={()=>{
+            setCountry(country);
+            navigate(`/name/${country.name.common}`);
+        }}>
           <img src={country.flags.png} alt="search icon" />
           <div className="divtitle">{country.name.common}</div>
           <div className="population"><span>Population:</span> {country.population}</div>
