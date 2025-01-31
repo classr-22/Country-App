@@ -14,7 +14,9 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Filterheader filter={filterstring} setFilterstring={setFilterstring}></Filterheader>
+      <Routes>
+        <Route path="/" element={<Filterheader filter={filterstring} setFilterstring={setFilterstring}></Filterheader>}></Route>
+      </Routes>
       <Routes>
         <Route path="/" element={<Card filter={filterstring} setCountry={setCountry}></Card>}>
         </Route>

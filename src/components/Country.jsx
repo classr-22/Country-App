@@ -8,6 +8,7 @@ function Country({country}) {
   return (
     <>
         <div>{country.name.common}</div>
+        <img src={country.flags.png} alt='flag picture'></img>
         <button onClick={()=>{
             navigate('/');
         }}>back</button>
