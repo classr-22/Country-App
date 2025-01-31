@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import {useSelector} from 'react-redux'
 
 function Card({ filter = "", setCountry}) {  
 
+  const mode = useSelector((state) => state.mode);
   const [countriesData, setCountriesData] = useState([]);
 
   const navigate = useNavigate();
@@ -32,9 +34,9 @@ function Card({ filter = "", setCountry}) {
   });
 
   return (
-    <div className="countrygrid">
+    <div className= {mode? "countrygrid mode" :"countrygrid"}>
       {filteredCountries.map((country) => (
-        <div className="card" key={country.cca3} onClick={()=>{
+        <div className= {mode?"card mode":"card"} key={country.cca3} onClick={()=>{
             setCountry(country);
             navigate(`/name/${country.name.common}`);
         }}>

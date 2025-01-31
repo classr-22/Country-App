@@ -35,6 +35,11 @@
     margin-top: 30px;
 }
 
+.mode{
+    color: white;
+    background-color: black;
+}
+
 .Filterheader select{
     width: 20%;
     height: 8vh;
